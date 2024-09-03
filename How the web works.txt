@@ -1,0 +1,134 @@
+- What is HTTP?
+	hypertext transfer protocol - how servers communicate
+
+- What is a URL?
+	universal resource locators - webpages, files, databases, http requests
+
+- What is DNS?
+	domain name system - take host name and translate into IP address
+	
+- What is a query string?
+	provides extra information - search terms, form info
+
+- What are two HTTP verbs and how are they different? 
+	get - retrieves the resource 
+	post - creates resource
+
+- What is an HTTP request?
+	client to host us url to communicate with server to access content/resources 
+
+- What is an HTTP response?
+	host provides resources, information, or error message back to the client
+
+- What is an HTTP header? Give a couple examples of request and response headers you have seen.
+	hostname, language
+
+- What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+	turn site into IP address, connect to it, on a port, using http protocol, request some/page.html
+
+
+curl -v icanhazdadjoke.com/data?param1=pirate
+
+taburt@TaylorHP:~$ curl -v icanhazdadjoke.com/data?param1=pirate
+*   Trying 172.67.198.173:80...
+* Connected to icanhazdadjoke.com (172.67.198.173) port 80 (#0)
+> GET /data?param1=pirate HTTP/1.1
+> Host: icanhazdadjoke.com
+> User-Agent: curl/7.81.0
+> Accept: */*
+>
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 308 Permanent Redirect
+< Date: Mon, 02 Sep 2024 19:48:22 GMT
+< Content-Length: 0
+< Connection: keep-alive
+< Location: https://icanhazdadjoke.com/data?param1=pirate
+< CF-Cache-Status: DYNAMIC
+< Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=P6XDNS%2BU8zvpTMPdoA%2FukFZ3cqqrf9ZlaYAR9YagXf0tR6SXMTdpWjKw%2BKHsEGcWtOnI9uHfh5opvIWlY7cdmzUF%2BFSyWNXtaxNUxqfTpsGY1lKkBx8ARt5LkD36Sl5aOhYh19c%3D"}],"group":"cf-nel","max_age":604800}
+< NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+< X-Content-Type-Options: nosniff
+< Server: cloudflare
+< CF-RAY: 8bd004656e79c578-IAD
+< alt-svc: h3=":443"; ma=86400
+<
+* Connection #0 to host icanhazdadjoke.com left intact
+
+Use dig to find what the IP address is for icanhazdadjoke.com
+
+taburt@TaylorHP:~$ dig icanhazdadjoke.com
+
+; <<>> DiG 9.18.18-0ubuntu0.22.04.1-Ubuntu <<>> icanhazdadjoke.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 287
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;icanhazdadjoke.com.            IN      A
+
+;; ANSWER SECTION:
+icanhazdadjoke.com.     63      IN      A       104.21.66.15
+icanhazdadjoke.com.     63      IN      A       172.67.198.173
+
+;; Query time: 19 msec
+;; SERVER: 10.255.255.254#53(10.255.255.254) (UDP)
+;; WHEN: Mon Sep 02 15:51:32 EDT 2024
+;; MSG SIZE  rcvd: 79
+
+
+Part 3
+
+GET - 	
+Request URL:
+file:///C:/Users/tabur/OneDrive/Desktop/UMGC/Bootcamp/Explore%20Dev%20Tools/explore.html?first-name=&last-name=&password=&Submit=Submit
+Request Method:
+GET
+Status Code:
+200 OK
+Referrer Policy:
+strict-origin-when-cross-origin
+content-type:
+text/html
+last-modified:
+Tue, 03 Sep 2024 22:27:56 GMT
+dnt:
+1
+sec-ch-ua:
+"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"
+sec-ch-ua-mobile:
+?0
+sec-ch-ua-platform:
+"Windows"
+upgrade-insecure-requests:
+1
+
+POST -
+
+	Request URL:
+file:///C:/Users/tabur/OneDrive/Desktop/UMGC/Bootcamp/Explore%20Dev%20Tools/explore.html
+Request Method:
+POST
+Status Code:
+200 OK
+Referrer Policy:
+strict-origin-when-cross-origin
+content-type:
+text/html
+last-modified:
+Tue, 03 Sep 2024 22:24:36 GMT
+content-type:
+application/x-www-form-urlencoded
+dnt:
+1
+origin:
+null
+sec-ch-ua:
+"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"
+sec-ch-ua-mobile:
+?0
+sec-ch-ua-platform:
+"Windows"
+upgrade-insecure-requests:
+1
